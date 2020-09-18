@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+	<p><b>Enter your last name here:</b> <input ng-model="x.lastname" type="text"></p>
+
+	<p ng-repeat="x in students | filter : {'lastname' : x.lastname}">{{x.firstname + " " + x.lastname + " -> " + x.score}}</p>
+
+
+
+</div>
+
+
+
+<script>
+
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope) {
+
+    $scope.students = [
+
+        {"firstname" : "Samvel", "lastname" : "Bareian", "score" : 9},
+
+        {"firstname" : "Ivan", "lastname" : "Gariuc", "score" : 8},
+
+        {"firstname" : "Andrei", "lastname" : "Voloshanovschi", "score" : 9},
+
+        {"firstname" : "Alexandr", "lastname" : "Ivanov", "score" : 8},
+
+        {"firstname" : "Valeria", "lastname" : "Snegur", "score" : 9}
+
+    ];
+
+});
+
+</script>
+
+
+
+</body>
+
+</html>
